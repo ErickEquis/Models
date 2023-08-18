@@ -1,0 +1,54 @@
+# Virtual environment
+venv/
+env/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Log files
+*.log
+
+# Development and local settings
+instance/
+config.py
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Dependency directories
+lib/
+bin/
+include/
+share/
+
+# Compiled distribution
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Environment variables file
+.env
+
+# Database files
+
+
+# Cache and temporary files
+.cache/
+
+# Compiled assets
+
+
+# User-specific files
+*.swp
+*.swo
+.DS_Store
+
+# Local database files
