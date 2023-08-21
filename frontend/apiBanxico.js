@@ -1,12 +1,25 @@
-function getApiBanxico(){(
-    fetch(`/banxico/SP74665`)
-        .then(response => response.json())
-        .then(data => {
-            console.log("Exito al consumir el API")
-            // Procesar los datos recibidos del backend
-        })
-        .catch(error => {
-            console.log("Error al consumir API")
-            // Manejar errores
-        })
-)}
+function getData() {
+    const resultDiv = document.getElementById('result');
+    const idSerie = "SP74665";
+
+    fetch(`http://localhost:5000/banxico/${idSerie}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        resultDiv.textContent = JSON.stringify(data); // Mostrar los datos en el div
+    })
+    .catch(error => {
+        console.error('Error al obtener datos:', error);
+    });
+}
+
+
