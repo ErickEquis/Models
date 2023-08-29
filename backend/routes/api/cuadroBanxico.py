@@ -1,9 +1,9 @@
 import requests
 import pandas as pd
 
-def getSectores():
+def getCuadro(idCuadro):
 
-    url = "https://www.banxico.org.mx/SieAPIRest/service/v1/cat/sectores/"
+    url = "https://www.banxico.org.mx/SieAPIRest/service/v1/cat/estructuras/" + idCuadro
 
     response = requests.get(url)
     data = response.json()

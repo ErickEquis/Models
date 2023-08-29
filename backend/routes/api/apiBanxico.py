@@ -10,9 +10,8 @@ def apiBanxico(idSerie):
 
     response = requests.get(url)
     data = response.json()
-    
-    
-
+    data = data['bmx']
+        
     df = pd.DataFrame(data)
 
     df = df.to_json(orient='records', indent=4)
