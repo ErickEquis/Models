@@ -7,11 +7,11 @@ def getSectores():
 
     response = requests.get(url)
     data = response.json()
-    data = data['bmx']
+    # data = data['bmx']
 
-    df = pd.DataFrame(data)
+    # df = pd.DataFrame(data)
 
-    df = df.to_json(orient='records', indent=4)
+    # df = df.to_json(orient='records', indent=4)
     # print(df)
 
-    return df
+    return data

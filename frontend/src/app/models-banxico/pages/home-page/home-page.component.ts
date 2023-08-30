@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
-
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgIf, NgFor} from '@angular/common';
-
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { ApiBanxicoService } from 'src/app/services/api-banxico.service';
 
 @Component({
   selector: 'models-home-page',
@@ -10,22 +8,25 @@ import {NgIf, NgFor} from '@angular/common';
   styleUrls: ['./home-page.component.css']
 })
 
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
 
-  tabLoadTimes: Date[] = [];
+  data: any[] = []
 
-  getTimeLoaded(index: number) {
-    if (!this.tabLoadTimes[index]) {
-      this.tabLoadTimes[index] = new Date();
-    }
-
-    return this.tabLoadTimes[index];
-  }
-
-  // List
+  constructor(private apiBanxico: ApiBanxicoService) { }
 
   toppings = new FormControl('');
 
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  toppingList: string[] = [];
+
+  ngOnInit() {
+    this.getData()
+  }
+
+  getData() {
+    this.apiBanxico.getData().subscribe(data => {
+      this.data = data;
+      console.log(data.bmx.sectores[2].descripcion)
+    });
+  }
 
 }
